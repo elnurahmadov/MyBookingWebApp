@@ -59,7 +59,6 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
         flightsInfo.setFreeSeats(airportDto.getFreeSeats());
 
         com.company.model.FlightsInfo save = flightsInfoRepository.save(flightsInfo);
-
         return modelMapper.map(save, FlightsInfoDto.class);
 
     }
@@ -68,7 +67,6 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
     public void delete(Long id) {
         flightsInfoRepository.deleteById(id);
     }
-
 
     @Override
     public List<FlightsInfoDto> flightsInfo(String destinationPoint, String flightDate) {
@@ -83,5 +81,4 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
                 .map(flightsInfo -> modelMapper.map(flightsInfo, FlightsInfoDto.class))
                 .collect(Collectors.toList());
     }
-
 }

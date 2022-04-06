@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new RuntimeException("This flight info is not available"));
 
         Long collect = userDto.getBookingFlightsList().stream().mapToLong(BookingFlights::getFreeSeats).sum();
-
         Long stock = flightsInfo.getFreeSeats() - collect;
 
         if (flightsInfo.getFreeSeats() > collect) {
