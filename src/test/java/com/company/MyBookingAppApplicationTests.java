@@ -9,5 +9,4 @@ class MyBookingAppApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
