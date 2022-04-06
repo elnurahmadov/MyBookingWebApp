@@ -1,6 +1,5 @@
 package com.company.model;
 
-
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
