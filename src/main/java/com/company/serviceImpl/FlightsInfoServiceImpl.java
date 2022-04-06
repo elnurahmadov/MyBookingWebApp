@@ -29,22 +29,28 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
 
     @Override
     public List<FlightsInfoDto> getAll() {
-        List<FlightsInfo> all = flightsInfoRepository.findAll();
-        List<FlightsInfoDto> collect = all.stream().map(flightsInfo -> modelMapper.map(flightsInfo, FlightsInfoDto.class))
+        List<com.company.model.FlightsInfo> all = flightsInfoRepository.findAll();
+        return all.stream().map(flightsInfo -> modelMapper.map(flightsInfo, FlightsInfoDto.class))
                 .collect(Collectors.toList());
-        return collect;
     }
 
     @Override
     public FlightsInfoDto create(FlightsInfoDto airportDto) {
-        FlightsInfo flightsInfo = modelMapper.map(airportDto, FlightsInfo.class);
-        FlightsInfo save = flightsInfoRepository.save(flightsInfo);
+        com.company.model.FlightsInfo flightsInfo = modelMapper.map(airportDto, com.company.model.FlightsInfo.class);
+        com.company.model.FlightsInfo save = flightsInfoRepository.save(flightsInfo);
         return modelMapper.map(save, FlightsInfoDto.class);
     }
 
     @Override
+    public FlightsInfoDto getById(Long id) {
+        FlightsInfo byId = flightsInfoRepository.getById(id);
+        FlightsInfoDto map = modelMapper.map(byId, FlightsInfoDto.class);
+        return map;
+    }
+
+    @Override
     public FlightsInfoDto update(FlightsInfoDto airportDto) {
-        FlightsInfo flightsInfo = flightsInfoRepository.findById((long) airportDto.getId()).orElseThrow(() -> new RuntimeException("User not found"));
+        com.company.model.FlightsInfo flightsInfo = flightsInfoRepository.findById(airportDto.getId()).orElseThrow(() -> new RuntimeException("User not found"));
         flightsInfo.setAirportName(airportDto.getAirportName());
         flightsInfo.setDeparturePoint(airportDto.getDeparturePoint());
         flightsInfo.setDestinationPoint(airportDto.getDestinationPoint());
@@ -52,7 +58,7 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
         flightsInfo.setFlightTime(airportDto.getFlightTime());
         flightsInfo.setFreeSeats(airportDto.getFreeSeats());
 
-        FlightsInfo save = flightsInfoRepository.save(flightsInfo);
+        com.company.model.FlightsInfo save = flightsInfoRepository.save(flightsInfo);
 
         return modelMapper.map(save, FlightsInfoDto.class);
 

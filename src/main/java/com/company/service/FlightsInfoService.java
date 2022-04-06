@@ -9,10 +9,12 @@ public interface FlightsInfoService {
 
     FlightsInfoDto create(FlightsInfoDto flightsInfoDto);
 
+    FlightsInfoDto getById(Long id);
+
     FlightsInfoDto update(FlightsInfoDto flightsInfoDto);
 
     void delete(Long id);
 
-    List<FlightsInfoDto>flightsInfo(String destinationPoint, String flightDate);
+    List<FlightsInfoDto> flightsInfo(String destinationPoint, String flightDate);
 
 }

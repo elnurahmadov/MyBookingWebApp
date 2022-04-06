@@ -3,6 +3,9 @@ package com.company.dto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import lombok.*;
+import lombok.experimental.FieldDefaults;
+
 import java.time.LocalDate;
 
 @Data
@@ -13,8 +16,6 @@ import java.time.LocalDate;
 public class FlightsInfoDto {
 
     Long id;
-
-    String city;
 
     LocalDate flightDate;
 
@@ -27,5 +28,4 @@ public class FlightsInfoDto {
     String airportName;
 
     Long freeSeats;
-
 }

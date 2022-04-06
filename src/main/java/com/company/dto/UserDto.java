@@ -1,5 +1,4 @@
 package com.company.dto;
-
 import com.company.model.BookingFlights;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

@@ -1,5 +1,6 @@
 package com.company.model;
 
+
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
@@ -32,4 +33,7 @@ public class FlightsInfo {
     Long freeSeats;
 
     String airportName;
+
+
 }
+

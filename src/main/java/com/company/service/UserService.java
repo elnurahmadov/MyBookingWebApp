@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserService {
     List<UserDto> getAll();
 
-    UserDto create(Long id,UserDto airportDto);
+    UserDto create(Long id, UserDto airportDto);
 
 
     UserDto update(UserDto airportDto);
@@ -16,5 +16,5 @@ public interface UserService {
     void delete(Long id);
 
 
-
 }
+

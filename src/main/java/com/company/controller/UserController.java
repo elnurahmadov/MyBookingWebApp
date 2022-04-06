@@ -16,25 +16,24 @@ public class UserController {
     private final UserService userService;
 
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<List<UserDto>> getAll() {
         List<UserDto> all = userService.getAll();
         return ResponseEntity.ok(all);
     }
 
-
-    @PostMapping
-    public UserDto create(@RequestParam Long id,@RequestBody UserDto userDto) {
-        return userService.create(id,userDto);
+    @PostMapping("/create")
+    public UserDto create(@RequestParam Long id, @RequestBody UserDto userDto) {
+        return userService.create(id, userDto);
     }
 
-    @PutMapping
-    public UserDto update(@RequestBody UserDto userDto){
+    @PutMapping("/update")
+    public UserDto update(@RequestBody UserDto userDto) {
         return userService.update(userDto);
     }
 
-    @DeleteMapping
-    public void delete(@PathVariable Long id){
+    @DeleteMapping("/delete")
+    public void delete(@PathVariable Long id) {
         userService.delete(id);
     }
 

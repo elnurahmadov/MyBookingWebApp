@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    
     private final ModelMapper modelMapper;
 
     private final UserRepository userRepository;
@@ -26,7 +25,6 @@ public class UserServiceImpl implements UserService {
     private final FlightsInfoRepository flightsInfoRepository;
 
     private final BookingFlightsRepository bookingFlightsRepository;
-
 
     @Override
     public List<UserDto> getAll() {
@@ -45,7 +43,7 @@ public class UserServiceImpl implements UserService {
 
         Long stock = flightsInfo.getFreeSeats() - collect;
 
-        if (((FlightsInfo) flightsInfo).getFreeSeats() > collect) {
+        if (flightsInfo.getFreeSeats() > collect) {
             flightsInfo.setFreeSeats(stock);
             User user = new User();
             user.setFirstName(userDto.getFirstName());
@@ -55,29 +53,22 @@ public class UserServiceImpl implements UserService {
 
         User user = modelMapper.map(userDto, User.class);
         User save = userRepository.save(user);
-        return modelMapper.map(save,UserDto.class);
+        return modelMapper.map(save, UserDto.class);
 
     }
-
 
     @Override
     public UserDto update(UserDto userDto) {
         User user = userRepository.findById(userDto.getId()).orElseThrow(() -> new RuntimeException("User not found"));
         user.setFirstName(userDto.getFirstName());
-        user.setLastName(userDto.getLastName());
+        user.setLastName(user.getLastName());
         user.setBookingFlightsList(userDto.getBookingFlightsList());
-
         User save = userRepository.save(user);
-
-        return modelMapper.map(save, UserDto.class);
-
+        return modelMapper.map(save, userDto.getClass());
     }
 
     @Override
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
-
-
-
 }

@@ -1,16 +1,20 @@
 package com.company.model;
 
+
+import com.company.dto.FlightsInfoDto;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
+public class User extends FlightsInfoDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,3 +28,4 @@ public class User {
     @JoinColumn(name = "user_booking_id")
     List<BookingFlights> bookingFlightsList;
 }
+
