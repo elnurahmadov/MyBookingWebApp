@@ -5,6 +5,7 @@ import com.company.dto.FlightsInfoDto;
 import java.util.List;
 
 public interface FlightsInfoService {
+
     List<FlightsInfoDto> getAll();
 
     FlightsInfoDto create(FlightsInfoDto flightsInfoDto);

@@ -28,4 +28,5 @@ public class FlightsInfoDto {
     String airportName;
 
     Long freeSeats;
+
 }

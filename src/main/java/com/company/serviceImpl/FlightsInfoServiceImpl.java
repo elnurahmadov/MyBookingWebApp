@@ -29,15 +29,15 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
 
     @Override
     public List<FlightsInfoDto> getAll() {
-        List<com.company.model.FlightsInfo> all = flightsInfoRepository.findAll();
+        List<FlightsInfo> all = flightsInfoRepository.findAll();
         return all.stream().map(flightsInfo -> modelMapper.map(flightsInfo, FlightsInfoDto.class))
                 .collect(Collectors.toList());
     }
 
     @Override
     public FlightsInfoDto create(FlightsInfoDto airportDto) {
-        com.company.model.FlightsInfo flightsInfo = modelMapper.map(airportDto, com.company.model.FlightsInfo.class);
-        com.company.model.FlightsInfo save = flightsInfoRepository.save(flightsInfo);
+        FlightsInfo flightsInfo = modelMapper.map(airportDto, com.company.model.FlightsInfo.class);
+        FlightsInfo save = flightsInfoRepository.save(flightsInfo);
         return modelMapper.map(save, FlightsInfoDto.class);
     }
 
@@ -50,7 +50,7 @@ public class FlightsInfoServiceImpl implements FlightsInfoService {
 
     @Override
     public FlightsInfoDto update(FlightsInfoDto airportDto) {
-        com.company.model.FlightsInfo flightsInfo = flightsInfoRepository.findById(airportDto.getId()).orElseThrow(() -> new RuntimeException("User not found"));
+        FlightsInfo flightsInfo = flightsInfoRepository.findById(airportDto.getId()).orElseThrow(() -> new RuntimeException("User not found"));
         flightsInfo.setAirportName(airportDto.getAirportName());
         flightsInfo.setDeparturePoint(airportDto.getDeparturePoint());
         flightsInfo.setDestinationPoint(airportDto.getDestinationPoint());
