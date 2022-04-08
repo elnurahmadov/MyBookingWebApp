@@ -35,6 +35,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDto getById(Long id) {
+        User byId = userRepository.getById(id);
+        UserDto map = modelMapper.map(byId, UserDto.class);
+        return map;
+    }
+
+    @Override
     public UserDto create(Long id, UserDto userDto) {
         FlightsInfo flightsInfo = flightsInfoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("This flight info is not available"));

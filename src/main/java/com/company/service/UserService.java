@@ -7,6 +7,8 @@ import java.util.List;
 public interface UserService {
     List<UserDto> getAll();
 
+    UserDto getById(Long id);
+
     UserDto create(Long id, UserDto airportDto);
 
 

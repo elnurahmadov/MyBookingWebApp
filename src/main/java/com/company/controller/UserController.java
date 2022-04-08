@@ -22,6 +22,11 @@ public class UserController {
         return ResponseEntity.ok(all);
     }
 
+    @GetMapping(value = "/list/{id}")
+    public UserDto getById(@PathVariable Long id) {
+        return userService.getById(id);
+    }
+
     @PostMapping("/create")
     public UserDto create(@RequestParam Long id, @RequestBody UserDto userDto) {
         return userService.create(id, userDto);
