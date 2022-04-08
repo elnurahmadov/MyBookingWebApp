@@ -8,9 +8,9 @@ public interface FlightsInfoService {
 
     List<FlightsInfoDto> getAll();
 
-    FlightsInfoDto create(FlightsInfoDto flightsInfoDto);
-
     FlightsInfoDto getById(Long id);
+
+    FlightsInfoDto create(FlightsInfoDto flightsInfoDto);
 
     FlightsInfoDto update(FlightsInfoDto flightsInfoDto);
 

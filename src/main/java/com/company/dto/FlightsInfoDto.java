@@ -16,7 +16,7 @@ public class FlightsInfoDto {
 
     LocalDate flightDate;
 
-    String FlightTime;
+    String flightTime;
 
     String destinationPoint;
 

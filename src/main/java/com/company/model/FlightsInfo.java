@@ -24,7 +24,7 @@ public class FlightsInfo {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate flightDate;
 
-    String FlightTime;
+    String flightTime;
 
     String destinationPoint;
 

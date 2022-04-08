@@ -19,7 +19,7 @@ public class BookingFlightsDto {
 
     LocalDate flightDate;
 
-    String FlightTime;
+    String flightTime;
 
     String destinationPoint;
 

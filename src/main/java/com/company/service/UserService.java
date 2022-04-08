@@ -11,9 +11,7 @@ public interface UserService {
 
     UserDto create(Long id, UserDto airportDto);
 
-
     UserDto update(UserDto airportDto);
-
 
     void delete(Long id);
 
