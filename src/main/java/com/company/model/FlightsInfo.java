@@ -1,8 +1,7 @@
 package com.company.model;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -11,9 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
-
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class FlightsInfo {
 
@@ -33,7 +34,5 @@ public class FlightsInfo {
     Long freeSeats;
 
     String airportName;
-
-
 }
 
