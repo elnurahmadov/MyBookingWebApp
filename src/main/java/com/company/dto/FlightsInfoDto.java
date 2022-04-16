@@ -26,4 +26,6 @@ public class FlightsInfoDto {
 
     Long freeSeats;
 
+    public FlightsInfoDto(FlightsInfoDto flightsInfoDto) {
+    }
 }
