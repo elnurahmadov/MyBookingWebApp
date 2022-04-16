@@ -20,4 +20,6 @@ public class UserDto {
 
         List<BookingFlights> bookingFlightsList;
 
+    public UserDto(UserDto userDto) {
+    }
 }
