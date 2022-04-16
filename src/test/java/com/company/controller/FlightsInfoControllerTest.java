@@ -80,4 +80,14 @@ class FlightsInfoControllerTest {
                 .build();
         Assertions.assertDoesNotThrow(() -> flightsInfoController.delete(flightsInfoDto.getId()));
     }
+
+    @Test
+    void flightsInfoDto() {
+        FlightsInfoDto flightsInfoDto = FlightsInfoDto.builder()
+                .destinationPoint("Baku")
+                .flightDate(LocalDate.ofEpochDay(2022 - 8 - 25))
+                .build();
+        Assertions.assertDoesNotThrow(() -> flightsInfoController.flightsInfoDto(flightsInfoDto.getDestinationPoint(), String.valueOf(flightsInfoDto.getFlightDate())));
+
+    }
 }

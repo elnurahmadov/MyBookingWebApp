@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface FlightsInfoRepository extends JpaRepository<FlightsInfo, Long> {
 
-    List<FlightsInfo> findByDestinationPointAndFlightDate(String city, LocalDate flightDate);
+    List<FlightsInfo> findByDestinationPointAndFlightDate(String destinationPoint, LocalDate flightDate);
 }

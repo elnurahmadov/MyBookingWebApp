@@ -1,4 +1,4 @@
-package com.company.serviceImpl;
+package com.company.service.serviceImpl;
 
 import com.company.dto.FlightsInfoDto;
 import com.company.model.FlightsInfo;
