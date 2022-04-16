@@ -1,13 +1,25 @@
 package com.company.serviceImpl;
 
+import com.company.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
-    @ExtendWith(MockitoExtension.class)
+    @Mock
+    private ModelMapper modelMapper;
+
+    @Mock
+    private UserRepository userRepository;
+
+    @InjectMocks
+    private UserServiceImpl userService;
 
     @Test
     void getAll() {
